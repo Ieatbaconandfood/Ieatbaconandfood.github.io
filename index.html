@@ -3,297 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic TCG | Official Site & Shop</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,700;1,800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Basic TCG | Official Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,700;0,900;1,700;1,900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-yellow: #ffcb05;
-            --primary-blue: #2a75bb;
-            --accent-red: #e3350d;
-            --game-crafter-orange: #f36f21;
-            --dark-gray: #313131;
-            --light-gray: #f6f6f6;
+            --tcg-blue: #2a75bb;
+            --tcg-yellow: #ffcb05;
+            --tcg-red: #e3350d;
+            --off-white: #f2f2f2;
+            --dark-bg: #313131;
         }
 
-        body {
-            font-family: 'Roboto', sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
+            font-family: 'Roboto', sans-serif;
             background-color: white;
-            color: var(--dark-gray);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
+            color: #313131;
         }
 
-        /* Navigation */
+        /* Top Utility Bar */
+        .utility-nav {
+            background-color: #f2f2f2;
+            height: 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        /* Main Navigation */
         nav {
             background-color: white;
-            border-bottom: 2px solid #ddd;
-            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            padding: 10px 10%;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo {
+        .logo-box {
+            background: var(--tcg-red);
+            padding: 15px 25px;
+            color: white;
             font-family: 'Exo 2', sans-serif;
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-            text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 900;
             font-style: italic;
+            font-size: 1.4rem;
+            margin-right: 40px;
+            border-radius: 0 0 10px 10px;
+            margin-top: -10px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark-gray);
+            color: #616161;
             font-weight: bold;
-            margin-left: 20px;
-            transition: color 0.2s;
+            margin-right: 25px;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            transition: 0.2s;
         }
 
-        /* Hero Section */
+        .nav-links a:hover { color: var(--tcg-blue); }
+
+        /* Cinematic Hero */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue), #1d4d8c);
-            color: white;
-            padding: 60px 5% 100px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 3px 3px 0px var(--accent-red);
-        }
-
-        /* --- SLIDER WINDOW --- */
-        .slider-container {
-            max-width: 900px;
-            margin: -60px auto 40px; /* Pulls it up into the hero section */
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
-            overflow: hidden;
-            border: 4px solid white;
-        }
-
-        .slider-header {
-            background: var(--dark-gray);
-            color: white;
-            padding: 10px 20px;
-            font-family: 'Exo 2', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .slides {
-            display: flex;
-            height: 350px;
-            position: relative;
-        }
-
-        .slide {
-            min-width: 100%;
-            transition: opacity 0.5s ease-in-out;
-            display: none; /* Hidden by default */
-            align-items: center;
-            justify-content: space-around;
-            padding: 20px;
-            box-sizing: border-box;
-            background: #fff;
-        }
-
-        .slide.active {
-            display: flex;
-        }
-
-        .pack-art {
-            width: 200px;
-            height: 280px;
-            background: linear-gradient(45deg, #ccc, #eee);
-            border-radius: 10px;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid #ddd;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
 
-        .slide-text {
-            max-width: 50%;
+        .hero-content {
+            text-align: center;
+            color: white;
         }
 
-        .slide-text h2 {
+        .hero-content h1 {
             font-family: 'Exo 2', sans-serif;
-            color: var(--primary-blue);
-            margin-top: 0;
+            font-size: 4rem;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            text-shadow: 4px 4px 0px var(--tcg-blue);
         }
 
-        /* --- CONTENT SECTIONS --- */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
+        /* Featured Content Window */
+        .content-window {
+            max-width: 1100px;
+            margin: -80px auto 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+        }
+
+        .window-main {
+            flex: 2;
+            padding: 50px;
+            background: white;
+        }
+
+        .window-sidebar {
+            flex: 1;
+            background: var(--off-white);
+            padding: 30px;
+        }
+
+        .tag {
+            background: var(--tcg-yellow);
+            padding: 5px 12px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        /* Game Crafter CTA */
+        .cta-bar {
+            background: #f36f21; /* Game Crafter Orange */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: bold;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #f36f21;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-left: 15px;
+            display: inline-block;
+        }
+
+        /* Card Showcase Grid */
+        .grid-container {
+            max-width: 1100px;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
-        .section-title {
-            border-left: 8px solid var(--primary-yellow);
-            padding-left: 15px;
-            margin-bottom: 30px;
-            font-family: 'Exo 2', sans-serif;
-            font-size: 1.8rem;
-        }
-
-        .rules-grid {
+        .card-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: 15px;
         }
 
-        /* Shop Button */
-        .shop-box {
-            background: #fff;
-            border: 3px solid var(--game-crafter-orange);
-            border-radius: 15px;
-            padding: 40px;
+        .tcg-card {
+            background: var(--off-white);
+            border-radius: 10px;
+            padding: 10px;
             text-align: center;
-            margin-top: 40px;
+            transition: 0.3s;
         }
 
-        .btn-shop {
-            background-color: var(--game-crafter-orange);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            font-family: 'Exo 2', sans-serif;
-            font-weight: bold;
-            border-radius: 50px;
-            display: inline-block;
-            transition: transform 0.2s;
-        }
+        .tcg-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        .btn-shop:hover { transform: scale(1.05); }
+        .card-img {
+            width: 100%;
+            aspect-ratio: 2.5 / 3.5;
+            background: #ccc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
 
         footer {
-            background: var(--dark-gray);
-            color: #ccc;
-            padding: 40px 5%;
+            background: var(--dark-bg);
+            color: #999;
+            padding: 60px 10%;
             text-align: center;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 768px) {
-            .rules-grid { grid-template-columns: 1fr; }
-            .slide { flex-direction: column; text-align: center; height: auto; padding: 40px 20px; }
-            .slide-text { max-width: 100%; margin-top: 20px; }
-            .pack-art { width: 150px; height: 210px; }
+            .content-window { flex-direction: column; margin-top: 20px; }
+            .card-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
+    <div class="utility-nav">
+        <span style="font-size: 0.7rem; font-weight: bold; color: #616161;">OFFICIAL TRADING CARD GAME WEBSITE</span>
+    </div>
+
     <nav>
-        <div class="logo">Basic TCG</div>
+        <div class="logo-box">BASIC TCG</div>
         <div class="nav-links">
-            <a href="#rules">How to Play</a>
-            <a href="#shop" style="color: var(--game-crafter-orange);">Shop</a>
+            <a href="#">Expansions</a>
+            <a href="#">How to Play</a>
+            <a href="#">Card Database</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Discover New Worlds</h1>
-    </header>
-
-    <!-- WINDOW SLIDER -->
-    <div class="slider-container">
-        <div class="slider-header">
-            <span>Featured Expansions</span>
-            <span style="color: var(--primary-yellow)">● New</span>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>UNLEASH THE POWER</h1>
+            <p>New expansion sets are available now.</p>
         </div>
-        <div class="slides">
-            <!-- Slide 1 -->
-            <div class="slide active">
-                <div class="pack-art" style="background: linear-gradient(to bottom, #ff5f6d, #ffc371);">BASE SET</div>
-                <div class="slide-text">
-                    <h2>The Journey Begins</h2>
-                    <p>Collect all 100 original cards in the premier Basic TCG expansion. Available now on The Game Crafter!</p>
-                </div>
+    </section>
+
+    <main>
+        <!-- The Featured Window -->
+        <div class="content-window">
+            <div class="window-main">
+                <span class="tag">New Release</span>
+                <h2 style="font-family: 'Exo 2'; font-size: 2.5rem; margin: 15px 0;">Base Set: Origins</h2>
+                <p>Begin your journey with the core set of 102 cards. Featuring legendary art and strategic gameplay mechanics.</p>
+                <a href="#" class="cta-btn" style="background: var(--tcg-blue); color: white; margin: 0;">Explore Set</a>
             </div>
-            <!-- Slide 2 -->
-            <div class="slide">
-                <div class="pack-art" style="background: linear-gradient(to bottom, #2193b0, #6dd5ed);">OCEAN TIDES</div>
-                <div class="slide-text">
-                    <h2>Ocean Tides Expansion</h2>
-                    <p>Dive deep into new mechanics with Water-type specialties and powerful legendary creatures.</p>
-                </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="slide">
-                <div class="pack-art" style="background: linear-gradient(to bottom, #11998e, #38ef7d);">JUNGLE FURY</div>
-                <div class="slide-text">
-                    <h2>Jungle Fury Pack</h2>
-                    <p>Unleash the wild with fast-paced attacks and poison-status cards to keep your opponent guessing.</p>
-                </div>
+            <div class="window-sidebar">
+                <h3 style="font-size: 0.9rem; text-transform: uppercase;">Latest News</h3>
+                <hr>
+                <p><strong>May 2026:</strong> Regional Championships announced!</p>
+                <p><strong>Apr 2026:</strong> New Deck Building guide released.</p>
             </div>
         </div>
-    </div>
 
-    <main class="container">
-        <section id="rules">
-            <h2 class="section-title">Rules of Combat</h2>
-            <div class="rules-grid">
-                <div>
-                    <h3>Draw & Play</h3>
-                    <p>Draw 1 card per turn. You can play any number of Item cards and 1 Energy card.</p>
-                </div>
-                <div>
-                    <h3>Winning</h3>
-                    <p>Knock out your opponent's creatures to take Prize Cards. Take 3 to win!</p>
-                </div>
-            </div>
-        </section>
+        <div class="cta-bar">
+            COLLECT PHYSICAL CARDS TODAY 
+            <a href="https://www.thegamecrafter.com" class="cta-btn">SHOP ON GAME CRAFTER</a>
+        </div>
 
-        <section id="shop">
-            <div class="shop-box">
-                <h2>Visit The Shop</h2>
-                <p>Pick up physical copies of these cards and start playing today!</p>
-                <a href="https://www.thegamecrafter.com" target="_blank" class="btn-shop">Buy on The Game Crafter</a>
+        <div class="grid-container">
+            <h2 style="font-family: 'Exo 2';">Featured Cards</h2>
+            <div class="card-grid">
+                <div class="tcg-card"><div class="card-img"></div><strong>Card Name</strong></div>
+                <div class="tcg-card"><div class="card-img"></div><strong>Card Name</strong></div>
+                <div class="tcg-card"><div class="card-img"></div><strong>Card Name</strong></div>
+                <div class="tcg-card"><div class="card-img"></div><strong>Card Name</strong></div>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Basic TCG.</p>
+        <p>&copy; 2026 Basic TCG. All trademarks belong to their respective owners.</p>
+        <p>This site is for educational purposes and is not affiliated with The Pokémon Company or Nintendo.</p>
     </footer>
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        function showNextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        // Change slide every 4 seconds
-        setInterval(showNextSlide, 4000);
-    </script>
 
 </body>
 </html>
+
+
+
+
